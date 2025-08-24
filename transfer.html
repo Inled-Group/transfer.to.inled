@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redireccionando...</title>
+    <script type="text/javascript">
+        // 1. Obtener la ruta de la URL actual (ej. "/mi-pagina/articulo.html?q=test")
+        const rutaActual = window.location.pathname + window.location.search + window.location.hash;
+
+        // 2. Construir la nueva URL con el dominio de destino
+        const nuevoDominio = "https://inled.es";
+        const nuevaURL = nuevoDominio + rutaActual;
+
+        // 3. Redirigir el navegador a la nueva URL
+        // Usamos location.replace() para que la página original no quede en el historial
+        window.location.replace(nuevaURL);
+
+        // Opcional: Mostrar un mensaje si la redirección tarda
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('mensaje').innerHTML = 'Si no es redirigido automáticamente, haga clic <a href="' + nuevaURL + '">aquí</a>.';
+        });
+    </script>
+</head>
+<body>
+    <p>Estás siendo redirigido automáticamente...</p>
+    <p id="mensaje"></p>
+</body>
+</html>
